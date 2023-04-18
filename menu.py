@@ -46,22 +46,22 @@ def cargarArchivo():
 
 def topMargenPorNivel():
     print("Top 10 de productos con mayor margen de ganancia\n")
-
+#Agregar que solamente se impriman los primeros 10
     print("**********Nivel 1**********")
     item_List.ordenamientoBurbujaCompuesto("margen level 1")
-    item_List.imprimir()
+    item_List.imprimirTop()
 
     print("\n**********Nivel 2**********")
     item_List.ordenamientoBurbujaCompuesto("margen level 2")
-    item_List.imprimir()
+    item_List.imprimirTop()
     print("\n**********Nivel 3**********")
     item_List.ordenamientoBurbujaCompuesto("margen level 3")
-    item_List.imprimir()
+    item_List.imprimirTop()
 
 def topValor():
     #Imprimir por  mayor valor del inventario
     item_List.ordenamientoBurbujaCompuesto("valor inventario")
-    item_List.imprimir()
+    item_List.imprimirTop()
 
 def opciones():
     opcionesMenu = '''

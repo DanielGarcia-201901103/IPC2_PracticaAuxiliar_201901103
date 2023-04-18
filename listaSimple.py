@@ -51,6 +51,21 @@ class ListaSimple:
             print("valorInventario: $",nodoTemporal.dato.valorInventario)
             print()
             nodoTemporal = nodoTemporal.siguiente
+    def imprimirTop(self):
+        contador = 0
+        nodoTemporal = Nodo("")
+        nodoTemporal = self.primero
+        while nodoTemporal != None:
+            contador +=1
+            if contador <= 10:
+                print("ItemCode: ",nodoTemporal.dato.item)
+                
+                print("MarginLevel1: ",nodoTemporal.dato.marginLevel1,"%")
+                print("MarginLevel2: ",nodoTemporal.dato.marginLevel2,"%")
+                print("MarginLevel3: ",nodoTemporal.dato.marginLevel3,"%")
+                print("valorInventario: $",nodoTemporal.dato.valorInventario)
+                print()
+            nodoTemporal = nodoTemporal.siguiente
 
     def ordenamientoBurbujaCompuesto(self, llave):
         #las variables hacen referencia al primer elemento de la lista
