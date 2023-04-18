@@ -65,9 +65,20 @@ class ListaSimple:
                 j = i.siguiente
                 while j != None:
                     #compara los datos para saber cual es el mayor
-                    i1 =i.dato.llave
-                    j1 = j.dato.llave
-                    if i1.obtenerSize() < j1.obtenerSize():
+                    if llave  == "valor inventario":
+                        i1 =i.dato.valorInventario
+                        j1 = j.dato.valorInventario
+                    elif llave  == "margen level 1":
+                        i1 =i.dato.marginLevel1
+                        j1 = j.dato.marginLevel1
+                    elif llave  == "margen level 2":
+                        i1 =i.dato.marginLevel2
+                        j1 = j.dato.marginLevel2
+                    elif llave  == "margen level 3":
+                        i1 =i.dato.marginLevel3
+                        j1 = j.dato.marginLevel3
+
+                    if i1 < j1:
                         #cambia el orden de los datos
                         temporal = i.dato
                         i.dato = j.dato

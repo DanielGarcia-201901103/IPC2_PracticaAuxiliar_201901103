@@ -44,6 +44,25 @@ def cargarArchivo():
     except Exception as e:
         print("Ha ocurrido un error.")
 
+def topMargenPorNivel():
+    print("Top 10 de productos con mayor margen de ganancia\n")
+
+    print("**********Nivel 1**********")
+    item_List.ordenamientoBurbujaCompuesto("margen level 1")
+    item_List.imprimir()
+
+    print("\n**********Nivel 2**********")
+    item_List.ordenamientoBurbujaCompuesto("margen level 2")
+    item_List.imprimir()
+    print("\n**********Nivel 3**********")
+    item_List.ordenamientoBurbujaCompuesto("margen level 3")
+    item_List.imprimir()
+
+def topValor():
+    #Imprimir por  mayor valor del inventario
+    item_List.ordenamientoBurbujaCompuesto("valor inventario")
+    item_List.imprimir()
+
 def opciones():
     opcionesMenu = '''
     ------- Menu Principal --------
@@ -67,14 +86,14 @@ if __name__ == '__main__':
             elif opcion == 2:
                 validarVacia = item_List.estaVacia()
                 if validarVacia == True:
-                    print("segunda opcion")
+                    topMargenPorNivel()
                 elif validarVacia == False:
                     print(
                         "Por favor cargue un archivo ya que no hay datos para procesar")
             elif opcion == 3:
                 validarVacia1 = item_List.estaVacia()
                 if validarVacia1 == True:
-                    print("tercera opcion")
+                    topValor()
                 elif validarVacia1 == False:
                     print("Por favor cargue un archivo ya que no hay datos para procesar")
             elif opcion == 4:
