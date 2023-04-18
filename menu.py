@@ -3,7 +3,9 @@ from tkinter import filedialog
 import xml.etree.cElementTree as ET
 from listaSimple import ListaSimple
 from item import Item
-
+import colorama
+from colorama import Fore
+from colorama import Style
 item_List = ListaSimple()
 
 def cargarArchivo():
@@ -38,45 +40,49 @@ def cargarArchivo():
                     #enviando objeto a la lista
                     item_List.insertarFinal(objetoItem)
                 
-            print("Archivo leído exitosamente\n")
+            print(Fore.GREEN +"Archivo leído exitosamente\n"+ Style.RESET_ALL)
         else :
-            print("Opcion cancelada.")
+            print(Fore.RED+"Opcion cancelada."+ Style.RESET_ALL)
     except Exception as e:
-        print("Ha ocurrido un error.")
+        print(Fore.RED + Style.DIM +"Ha ocurrido un error."+ Style.RESET_ALL)
 
 def topMargenPorNivel():
-    print("Top 10 de productos con mayor margen de ganancia\n")
+    print(Fore.GREEN + Style.BRIGHT +"Top 10 de productos con mayor margen de ganancia.\n"+ Style.RESET_ALL)
 #Agregar que solamente se impriman los primeros 10
-    print("**********Nivel 1**********")
+    print(Fore.BLUE + Style.BRIGHT +"**********Nivel 1**********"+ Style.RESET_ALL)
     item_List.ordenamientoBurbujaCompuesto("margen level 1")
     item_List.imprimirTop()
 
-    print("\n**********Nivel 2**********")
+    print(Fore.BLUE + Style.BRIGHT +"\n**********Nivel 2**********"+ Style.RESET_ALL)
     item_List.ordenamientoBurbujaCompuesto("margen level 2")
     item_List.imprimirTop()
-    print("\n**********Nivel 3**********")
+    print(Fore.BLUE + Style.BRIGHT +"\n**********Nivel 3**********"+ Style.RESET_ALL)
     item_List.ordenamientoBurbujaCompuesto("margen level 3")
     item_List.imprimirTop()
 
 def topValor():
     #Imprimir por  mayor valor del inventario
+    print(Fore.GREEN + Style.BRIGHT +"\nTop 10 de productos con mayor valor del inventario."+ Style.RESET_ALL)
     item_List.ordenamientoBurbujaCompuesto("valor inventario")
     item_List.imprimirTop()
 
 def opciones():
     opcionesMenu = '''
-    ------- Menu Principal --------
+==========================================================
+    -------------- Menu Principal ---------------
     1. Cargar archivo xml
     2. Top 10 de productos con mayor margen de ganancia.
     3. Top 10 de productos con mayor valor del inventario.
     4. Imprimir datos.
     5. Salir.
+==========================================================
     '''
-    print(opcionesMenu)
+    print(Fore.YELLOW +opcionesMenu+Style.RESET_ALL)
 
 if __name__ == '__main__':
     while True:
         try:
+            colorama.init()
             opciones()
             # recibe la opcion ingresada y la guarda como entero
             opcion = int(input("Ingrese una opcion: "))
@@ -88,23 +94,23 @@ if __name__ == '__main__':
                 if validarVacia == True:
                     topMargenPorNivel()
                 elif validarVacia == False:
-                    print(
-                        "Por favor cargue un archivo ya que no hay datos para procesar")
+                    print(Fore.RED + Style.DIM +
+                        "Por favor cargue un archivo ya que no hay datos para procesar"+ Style.RESET_ALL)
             elif opcion == 3:
                 validarVacia1 = item_List.estaVacia()
                 if validarVacia1 == True:
                     topValor()
                 elif validarVacia1 == False:
-                    print("Por favor cargue un archivo ya que no hay datos para procesar")
+                    print(Fore.RED + Style.DIM +"Por favor cargue un archivo ya que no hay datos para procesar"+ Style.RESET_ALL)
             elif opcion == 4:
                 validarVacia1 = item_List.estaVacia()
                 if validarVacia1 == True:
                     item_List.imprimir()
                 elif validarVacia1 == False:
-                    print("Por favor cargue un archivo ya que no hay datos para procesar")
+                    print(Fore.RED + Style.DIM +"Por favor cargue un archivo ya que no hay datos para procesar"+ Style.RESET_ALL)
             elif opcion == 5:
                 sys.exit()
             else:
-                print("Ingrese una opcion correcta")
+                print(Fore.RED + Style.DIM +"Ingrese una opcion correcta"+ Style.RESET_ALL)
         except ValueError:
-            print("\nPor favor ingrese solo numeros")
+            print(Fore.RED + Style.DIM +"\nPor favor ingrese solo numeros"+ Style.RESET_ALL)
