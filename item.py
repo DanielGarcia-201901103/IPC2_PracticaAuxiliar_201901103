@@ -17,7 +17,7 @@ class Item():
         self.priceLevel2 = priceLevel2
         self.priceLevel3 = priceLevel3
         self.lastTotalUnitCost = lastTotalUnitCost
-        self.marginLevel1 = self.__calcularMargenes(self.priceLevel1,lastTotalUnitCost)
+        self.marginLevel1 = self.__calcularMargenes(self.priceLevel1,self.lastTotalUnitCost)
         self.marginLevel2 = self.__calcularMargenes(self.priceLevel2,self.lastTotalUnitCost)
         self.marginLevel3 = self.__calcularMargenes(self.priceLevel3,self.lastTotalUnitCost)
         self.valorInventario = self.__calcularValorInventario()
