@@ -1,6 +1,6 @@
 class Item():
     item: str
-    quantityOnHand: int
+    quantityOnHand: float
     priceLevel1: float
     priceLevel2: float
     priceLevel3: float

@@ -36,7 +36,7 @@ def cargarArchivo():
                         elif item2.tag == "LastTotalUnitCost":
                             item2_LastTotalUnitCost = item2.text
                     #Aca se envia al objeto listaElementos elemento
-                    objetoItem = Item(str(item2_ItemCode).strip(),int(item2_QuantityOnHand),float(item2_PriceLevel1),float(item2_PriceLevel2),float(item2_PriceLevel3),float(item2_LastTotalUnitCost))
+                    objetoItem = Item(str(item2_ItemCode).strip(),float(item2_QuantityOnHand),float(item2_PriceLevel1),float(item2_PriceLevel2),float(item2_PriceLevel3),float(item2_LastTotalUnitCost))
                     #enviando objeto a la lista
                     item_List.insertarFinal(objetoItem)
                 
@@ -44,7 +44,7 @@ def cargarArchivo():
         else :
             print(Fore.RED+"Opcion cancelada."+ Style.RESET_ALL)
     except Exception as e:
-        print(Fore.RED + Style.DIM +"Ha ocurrido un error."+ Style.RESET_ALL)
+        print(Fore.RED + Style.DIM +"Ha ocurrido un error."+ str(e)+ Style.RESET_ALL)
 
 def topMargenPorNivel():
     print(Fore.GREEN + Style.BRIGHT +"Top 10 de productos con mayor margen de ganancia.\n"+ Style.RESET_ALL)
